@@ -11,6 +11,5 @@ public class TFM_WorldEditBridge
 
     public static void validateSelection(final Player player)
     {
-        return;
     }
 }
