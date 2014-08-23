@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 public enum TFM_PlayerRank
 {
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
+    SYSADMIN("a " + ChatColor.DARK_RED + "Stem Admin", ChatColor.DARK_RED + "[SystemAdmin]")
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
@@ -67,6 +68,18 @@ public enum TFM_PlayerRank
         {
                 return COOWNER;
         }
+        if (sender.getName().equalsIgnoreCase("callofdutydude"))
+        {
+                return SYSADMIN;
+        }        
+        if (sender.getName().equalsIgnoreCase("LuisGamerBR"))
+        {
+                return SYSADMIN;
+        } 
+                if (sender.getName().equalsIgnoreCase("Bluetails2K"))
+        {
+                return SYSADMIN;
+        } 
         if (TFM_AdminList.isAdminImpostor((Player) sender))
         {
             return IMPOSTOR;
