@@ -13,10 +13,10 @@ public enum TFM_PlayerRank
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
     SUPER("a " + ChatColor.GOLD + "Super Admin", ChatColor.GOLD + "[SA]"),
-    TELNET("a " + ChatColor.DARK_GREEN + "Super Telnet Admin", ChatColor.DARK_GREEN + "[STA]"),
     SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
     OWNER("the " + ChatColor.BLUE + "Owner", ChatColor.BLUE + "[Owner]"),
-    CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
+    CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]"),
+    COOWNER("The " + ChatColor.DARK_PURPLE + "Co Owner", ChatColor.DARK_PURPLE + "[Co-Owner]");
     private String loginMessage;
     private String prefix;
 
@@ -59,7 +59,14 @@ public enum TFM_PlayerRank
         {
             return CONSOLE;
         }
-
+        if (sender.getName().equalsIgnoreCase("xXMrBlackManXx"))
+        {
+                return COOWNER;
+        }
+        if (sender.getName().equalsIgnoreCase("Bluetails2K"))
+        {
+                return COOWNER;
+        }
         if (TFM_AdminList.isAdminImpostor((Player) sender))
         {
             return IMPOSTOR;
@@ -81,14 +88,14 @@ public enum TFM_PlayerRank
             {
                 return OWNER;
             }
-
+            else if (TFM_ConfigEntry.DEVELOPERS.getList().contains(sender.getName()))
+            {
+                return DEVELOPER;
+            }
+            
             if (entry.isSeniorAdmin())
             {
                 rank = SENIOR;
-            }
-            else if (entry.isTelnetAdmin())
-            {
-                rank = TELNET;
             }
             else
             {
