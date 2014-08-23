@@ -1,7 +1,7 @@
-name: TotalFreedomMod
+name: BCFreedomMod
 main: me.StevenLawson.TotalFreedomMod.TotalFreedomMod
 version: 4.3
-description: Plugin for the Total Freedom server.
+description: Plugin for the BCFreedom.
 softdepend: [BukkitTelnet, WorldEdit, Essentials]
 authors: [Madgeek1450, DarthSalamon]
 
