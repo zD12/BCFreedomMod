@@ -15,7 +15,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
+@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH)
 @CommandParameters(description = "Makes someone GTFO (deop and ip ban by username).", usage = "/<command> <partialname>")
 public class Command_gtfo extends TFM_Command
 {
@@ -43,17 +43,9 @@ public class Command_gtfo extends TFM_Command
 
         TFM_Util.bcastMsg(player.getName() + " has been a VERY naughty, naughty boy.", ChatColor.RED);
 
-        // Undo WorldEdits:
-        try
-        {
-            TFM_WorldEditBridge.undo(player, 15);
-        }
-        catch (NoClassDefFoundError ex)
-        {
-        }
 
         // rollback
-        TFM_RollbackManager.rollback(player.getName());
+        server.dispatchCommand(sender, "co rb u:" + sender.getName() + " r:#global t:24h1m #silent");
 
         // deop
         player.setOp(false);
